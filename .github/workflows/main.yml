@@ -1,29 +1,59 @@
-name: Deploy React App to GitHub Pages
+name: Deploy to GitHub Pages
 
 on:
   push:
     branches:
-      - master  # Change this if your default branch is not 'main'
+      - main
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '19'  # Use the version of Node.js your app requires
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
 
       - name: Install dependencies
         run: npm install
 
-      - name: Build the app
+      - name: Build
         run: npm run build
 
-      - name: Deploy to GitHub Pages
-        run: npm run deploy
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build
+```[_{{{CITATION{{{_3{Deploying React Apps to Github Pages with Github Actions](https://dev.to/codeparrot/deploying-react-apps-to-github-pages-with-github-actions-5gja)
+
+
+
+# name: Deploy React App to GitHub Pages
+
+# on:
+#   push:
+#     branches:
+#       - master  # Change this if your default branch is not 'main'
+
+# jobs:
+#   deploy:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Checkout repository
+#         uses: actions/checkout@v2
+
+#       - name: Set up Node.js
+#         uses: actions/setup-node@v2
+#         with:
+#           node-version: '19'  # Use the version of Node.js your app requires
+
+#       - name: Install dependencies
+#         run: npm install
+
+#       - name: Build the app
+#         run: npm run build
+
+#       - name: Deploy to GitHub Pages
+#         run: npm run deploy
+#         env:
+#           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
