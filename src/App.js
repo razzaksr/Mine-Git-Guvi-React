@@ -15,7 +15,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React from Zealous!!!
+          Learn React from Zealous Tech Corp!!!
         </a>
       </header>
     </div>
