@@ -24,7 +24,6 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./build
-```[_{{{CITATION{{{_3{Deploying React Apps to Github Pages with Github Actions](https://dev.to/codeparrot/deploying-react-apps-to-github-pages-with-github-actions-5gja)
 
 
 
